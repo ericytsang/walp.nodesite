@@ -30,7 +30,15 @@ mongoDbClient.connect('mongodb+srv://application:4OoNV5z8Jw5ac0B0VKCIl6sMa6h@wal
 
 app.get("/", (req, res) =>
 {
-  res.sendFile(`${__dirname}/index.html`)
+  var cursor = mongoDbConnection.collection("note").find()
+  cursor.toArray((err, cursorRes) =>
+  {
+    // log error & abort if present
+    if (err) return console.log(err)
+
+    // send the client the quotes
+    res.send(cursorRes)
+  })
 })
 
 app.get("/dirname", (req, res) =>
