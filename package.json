@@ -1,0 +1,20 @@
+{
+  "name": "walp.nodesite",
+  "version": "1.0.0",
+  "description": "site im making to learn nodejs, express, and mongodb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eric Tsang <surplis.et@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  },
+  "scripts": {
+    "dev": "nodemon server.js"
+  }
+}
