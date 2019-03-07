@@ -13,11 +13,8 @@ var mongoDbConnection;
 
 mongoDbClient.connect('mongodb+srv://application:4OoNV5z8Jw5ac0B0VKCIl6sMa6h@walp-nodesite-pgjky.mongodb.net/test?retryWrites=true', (err, client) => {
 
-  // log error if present
-  if (err)
-  {
-    return console.log(err)
-  }
+  // log error & abort if present
+  if (err) return console.log(err)
 
   // establish connection with database
   mongoDbConnection = client.db("walp-nodesite")
@@ -46,12 +43,14 @@ app.get("/dirname", (req, res) =>
 app.post("/note", (req, res) =>
 {
   mongoDbConnection.collection("note").save(req.body, (err, result) => {
-    if (err)
-    {
-      return console.log(err)
-    }
 
+    // log error & abort if present
+    if (err) console.log(err)
+
+    // log saving success
     console.log(`saved: ${req.body}`)
+
+    // make browsers reload the page
     res.redirect("/")
   })
 })
