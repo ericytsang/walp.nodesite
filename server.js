@@ -7,6 +7,9 @@ const port = 9090
 // app to use bodyParser to parse POST request payloads
 app.use(bodyParser.urlencoded({extended: true}))
 
+// app to use embedded JavaScript to parse views
+app.set("view engine", "ejs")
+
 const mongoDbClient = require('mongodb').MongoClient
 var mongoDbConnection;
 
@@ -38,7 +41,7 @@ app.get("/", (req, res) =>
     if (err) return console.log(err)
 
     // send the client the quotes
-    res.send(cursorRes)
+    res.render("index.ejs",{notes:cursorRes})
   })
 })
 
