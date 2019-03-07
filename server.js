@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 // app to use embedded JavaScript to parse views
 app.set("view engine", "ejs")
 
-const mongoDbClient = require('mongodb').MongoClient
+const mongoDbClient = require("mongodb").MongoClient
 var mongoDbConnection;
 
 // connect to database
