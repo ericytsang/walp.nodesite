@@ -45,6 +45,13 @@ app.get("/dirname", (req, res) =>
 
 app.post("/note", (req, res) =>
 {
-  res.send(req.body)
-  console.log(req.body)
+  mongoDbConnection.collection("note").save(req.body, (err, result) => {
+    if (err)
+    {
+      return console.log(err)
+    }
+
+    console.log(`saved: ${req.body}`)
+    res.redirect("/")
+  })
 })
