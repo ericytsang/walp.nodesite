@@ -4,6 +4,7 @@ const bodyParser= require('body-parser')
 const app = express()
 const port = 9090
 
+// app to use bodyParser to parse POST request payloads
 app.use(bodyParser.urlencoded({extended: true}))
 
 const mongoDbClient = require('mongodb').MongoClient
