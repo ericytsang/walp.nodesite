@@ -56,7 +56,7 @@ app.post("/note", (req, res) =>
     if (err) console.log(err)
 
     // log saving success
-    console.log(`saved: ${req.body}`)
+    console.log("saved: " + JSON.stringify(req.body))
 
     // make browsers reload the page
     res.redirect("/")
