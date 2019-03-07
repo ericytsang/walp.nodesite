@@ -10,12 +10,13 @@ app.use(bodyParser.urlencoded({extended: true}))
 // app to use embedded JavaScript to parse views
 app.set("view engine", "ejs")
 
+const connectionString = require(__dirname+"/credentials.js").connectionString
 const mongoDbClient = require("mongodb").MongoClient
 var mongoDbConnection;
 
 // connect to database
 
-mongoDbClient.connect('mongodb+srv://application:4OoNV5z8Jw5ac0B0VKCIl6sMa6h@walp-nodesite-pgjky.mongodb.net/test?retryWrites=true', (err, client) => {
+mongoDbClient.connect(connectionString, (err, client) => {
 
   // log error & abort if present
   if (err) return console.log(err)
