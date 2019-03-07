@@ -1,6 +1,10 @@
 const express = require("express")
+const bodyParser= require('body-parser')
+
 const app = express()
 const port = 9090
+
+app.use(bodyParser.urlencoded({extended: true}))
 
 // server
 
@@ -19,4 +23,12 @@ app.get("/", (req, res) =>
 app.get("/dirname", (req, res) =>
 {
   res.send(__dirname)
+})
+
+// note CRUD
+
+app.post("/note", (req, res) =>
+{
+  res.send(req.body)
+  console.log(req.body)
 })
